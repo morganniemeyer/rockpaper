@@ -20,7 +20,6 @@ let compPlay3 = document.getElementById('compplay3');
 
 const fighters = ['link', 'cucco', 'bokoblin'];
 let compPick = getRandomItem(fighters);
-
 /* Actions */
 function getRandomItem(array) {
     const random = getRandomNumber(array.length);
@@ -36,7 +35,6 @@ function loadPage() {}
 function fightPick(userPick) {
     gameState = 'results';
     fighterPick.classList.add('hide');
-    sbtxt.classList.add('hide');
     gameState = 'results';
     pick = userPick;
     dispFighter();
@@ -79,12 +77,44 @@ function compFighter() {
 
 fight1.addEventListener('click', () => {
     fightPick(fight1);
+    if (compPick === 'link') {
+        sbtxt.textContent = 'Stop messing with the Timeline! (Draw)';
+    } else {
+        if (compPick === 'cucco') {
+            sbtxt.textContent = 'Cucco! Run Away! (Lose)';
+        } else {
+            compPick === 'bokoblin';
+            sbtxt.textContent = 'Easy Pickins (Win)';
+        }
+    }
 });
+
 fight2.addEventListener('click', () => {
     fightPick(fight2);
+    if (compPick === 'link') {
+        sbtxt.textContent = 'Get Him! (Win)';
+    } else {
+        if (compPick === 'cucco') {
+            sbtxt.textContent = 'Best Friends Forever (Draw)';
+        } else {
+            compPick === 'bokoblin';
+            sbtxt.textContent = 'Run Away!!! (Lose)';
+        }
+    }
 });
+
 fight3.addEventListener('click', () => {
     fightPick(fight3);
+    if (compPick === 'link') {
+        sbtxt.textContent = 'Interloper! Run! (Lose)';
+    } else {
+        if (compPick === 'cucco') {
+            sbtxt.textContent = 'Ooo Dinner (Win)';
+        } else {
+            compPick === 'bokoblin';
+            sbtxt.textContent = 'Best Friends Forever (Draw)';
+        }
+    }
 });
 
 /* Run page load code */
