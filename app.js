@@ -14,6 +14,10 @@ let play1 = document.getElementById('play1');
 let play2 = document.getElementById('play2');
 let play3 = document.getElementById('play3');
 
+let compPlay1 = document.getElementById('compplay1');
+let compPlay2 = document.getElementById('compplay2');
+let compPlay3 = document.getElementById('compplay3');
+
 const fighters = ['link', 'cucco', 'bokoblin'];
 let compPick = getRandomItem(fighters);
 
@@ -37,6 +41,7 @@ function fightPick(userPick) {
     pick = userPick;
     dispFighter();
     compPick;
+    compFighter();
 }
 
 function dispFighter() {
@@ -48,7 +53,18 @@ function dispFighter() {
         } else {
             pick === fight3;
             play3.classList.remove('hide');
-            play3.classList.add('flip');
+        }
+    }
+}
+function compFighter() {
+    if (compPick === 'link') {
+        compPlay1.classList.remove('hide');
+    } else {
+        if (compPick === 'cucco') {
+            compPlay2.classList.remove('hide');
+        } else {
+            compPick === 'bokoblin';
+            compPlay3.classList.remove('hide');
         }
     }
 }
