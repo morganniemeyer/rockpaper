@@ -22,10 +22,18 @@ header {
 
 main {
     padding: 20px;
+    display: grid;
+    grid-template-rows: auto;
+}
+
+#fighter-select {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 img {
     max-height: 353px;
+    padding: 10px;
 }
 
 .flip {
@@ -34,4 +42,11 @@ img {
 
 .hide {
     display: none;
+}
+
+h1 {
+    text-align: center;
+}
+h3 {
+    text-align: center;
 }
