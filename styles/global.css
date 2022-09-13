@@ -23,3 +23,15 @@ header {
 main {
     padding: 20px;
 }
+
+img {
+    max-height: 353px;
+}
+
+.flip {
+    transform: scaleX(-1);
+}
+
+.hide {
+    display: none;
+}
