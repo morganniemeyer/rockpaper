@@ -1,8 +1,11 @@
 /* Imports */
 
 /* State */
-let gameState = 'guess';
 let pick = '';
+let winCount = 0;
+let loseCount = 0;
+let tieCount = 0;
+
 let fight1 = document.getElementById('fight1');
 let fight2 = document.getElementById('fight2');
 let fight3 = document.getElementById('fight3');
@@ -21,9 +24,9 @@ let compPlay3 = document.getElementById('compplay3');
 const fighters = ['link', 'cucco', 'bokoblin'];
 let compPick = getRandomItem(fighters);
 
-let winCount = document.getElementById('total-wins');
-let loseCount = document.getElementById('total-losses');
-let tieCount = document.getElementById('total-ties');
+let winDisp = document.getElementById('total-wins');
+let loseDisp = document.getElementById('total-losses');
+let tieDisp = document.getElementById('total-ties');
 
 /* Actions */
 function getRandomItem(array) {
@@ -38,9 +41,7 @@ function getRandomNumber(choices) {
 function loadPage() {}
 
 function fightPick(userPick) {
-    gameState = 'results';
     fighterPick.classList.add('hide');
-    gameState = 'results';
     pick = userPick;
     dispFighter();
     compPick;
@@ -84,15 +85,18 @@ fight1.addEventListener('click', () => {
     fightPick(fight1);
     if (compPick === 'link') {
         sbtxt.textContent = 'Stop messing with the Timeline! (Draw)';
-        sbtxt.classList.add('draw');
+        tieCount++;
+        tieDisp.textContent = tieCount;
     } else {
         if (compPick === 'cucco') {
             sbtxt.textContent = 'Cucco! Run Away! (Lose)';
-            sbtxt.classList.add('lose');
+            loseCount++;
+            loseDisp.textContent = loseCount;
         } else {
             compPick === 'bokoblin';
             sbtxt.textContent = 'Easy Pickins (Win)';
-            sbtxt.classList.add('win');
+            winCount++;
+            winDisp.textContent = winCount;
         }
     }
 });
@@ -101,15 +105,18 @@ fight2.addEventListener('click', () => {
     fightPick(fight2);
     if (compPick === 'link') {
         sbtxt.textContent = 'Get Him! (Win)';
-        sbtxt.classList.add('win');
+        winCount++;
+        winDisp.textContent = winCount;
     } else {
         if (compPick === 'cucco') {
             sbtxt.textContent = 'Best Friends Forever (Draw)';
-            sbtxt.classList.add('draw');
+            tieCount++;
+            tieDisp.textContent = tieCount;
         } else {
             compPick === 'bokoblin';
             sbtxt.textContent = 'Run Away!!! (Lose)';
-            sbtxt.classList.add('lose');
+            loseCount++;
+            loseDisp.textContent = loseCount;
         }
     }
 });
@@ -118,15 +125,18 @@ fight3.addEventListener('click', () => {
     fightPick(fight3);
     if (compPick === 'link') {
         sbtxt.textContent = 'Interloper! Run! (Lose)';
-        sbtxt.classList.add('lose');
+        loseCount++;
+        loseDisp.textContent = loseCount;
     } else {
         if (compPick === 'cucco') {
             sbtxt.textContent = 'Ooo Dinner (Win)';
-            sbtxt.classList.add('win');
+            winCount++;
+            winDisp.textContent = winCount;
         } else {
             compPick === 'bokoblin';
-            sbtxt.textContent = 'Best Friends Forever (Draw)';
-            sbtxt.classList.add('draw');
+            sbtxt.textContent = 'The enemy of my enemy is a friend. (Draw)';
+            tieCount++;
+            tieDisp.textContent = tieCount;
         }
     }
 });
