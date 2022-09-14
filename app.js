@@ -20,6 +20,11 @@ let compPlay3 = document.getElementById('compplay3');
 
 const fighters = ['link', 'cucco', 'bokoblin'];
 let compPick = getRandomItem(fighters);
+
+let winCount = document.getElementById('total-wins');
+let loseCount = document.getElementById('total-losses');
+let tieCount = document.getElementById('total-ties');
+
 /* Actions */
 function getRandomItem(array) {
     const random = getRandomNumber(array.length);
@@ -79,12 +84,15 @@ fight1.addEventListener('click', () => {
     fightPick(fight1);
     if (compPick === 'link') {
         sbtxt.textContent = 'Stop messing with the Timeline! (Draw)';
+        sbtxt.classList.add('draw');
     } else {
         if (compPick === 'cucco') {
             sbtxt.textContent = 'Cucco! Run Away! (Lose)';
+            sbtxt.classList.add('lose');
         } else {
             compPick === 'bokoblin';
             sbtxt.textContent = 'Easy Pickins (Win)';
+            sbtxt.classList.add('win');
         }
     }
 });
@@ -93,12 +101,15 @@ fight2.addEventListener('click', () => {
     fightPick(fight2);
     if (compPick === 'link') {
         sbtxt.textContent = 'Get Him! (Win)';
+        sbtxt.classList.add('win');
     } else {
         if (compPick === 'cucco') {
             sbtxt.textContent = 'Best Friends Forever (Draw)';
+            sbtxt.classList.add('draw');
         } else {
             compPick === 'bokoblin';
             sbtxt.textContent = 'Run Away!!! (Lose)';
+            sbtxt.classList.add('lose');
         }
     }
 });
@@ -107,12 +118,15 @@ fight3.addEventListener('click', () => {
     fightPick(fight3);
     if (compPick === 'link') {
         sbtxt.textContent = 'Interloper! Run! (Lose)';
+        sbtxt.classList.add('lose');
     } else {
         if (compPick === 'cucco') {
             sbtxt.textContent = 'Ooo Dinner (Win)';
+            sbtxt.classList.add('win');
         } else {
             compPick === 'bokoblin';
             sbtxt.textContent = 'Best Friends Forever (Draw)';
+            sbtxt.classList.add('draw');
         }
     }
 });
