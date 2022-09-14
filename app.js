@@ -23,6 +23,7 @@ let compPlay3 = document.getElementById('compplay3');
 
 const fighters = ['link', 'cucco', 'bokoblin'];
 let compPick = getRandomItem(fighters);
+let playAgain = document.getElementById('playagain');
 
 let winDisp = document.getElementById('total-wins');
 let loseDisp = document.getElementById('total-losses');
@@ -46,6 +47,7 @@ function fightPick(userPick) {
     dispFighter();
     compPick;
     compFighter();
+    playAgain.classList.remove('hide');
 }
 
 function dispFighter() {
@@ -71,6 +73,17 @@ function compFighter() {
             compPlay3.classList.remove('hide');
         }
     }
+}
+function playMore() {
+    play1.classList.add('hide');
+    play2.classList.add('hide');
+    play3.classList.add('hide');
+    compPlay1.classList.add('hide');
+    compPlay2.classList.add('hide');
+    compPlay3.classList.add('hide');
+    playAgain.classList.add('hide');
+    fighterPick.classList.remove('hide');
+    sbtxt.textContent = 'Choose your Fighter!';
 }
 
 /* Components */
@@ -139,6 +152,10 @@ fight3.addEventListener('click', () => {
             tieDisp.textContent = tieCount;
         }
     }
+});
+
+playAgain.addEventListener('click', () => {
+    playMore();
 });
 
 /* Run page load code */
