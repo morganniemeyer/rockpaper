@@ -63,7 +63,6 @@ function dispFighter() {
 }
 function compFighter() {
     compPick = getRandomItem(fighters);
-    console.log(compPick);
     if (compPick === 'link') {
         compPlay1.classList.remove('hide');
     } else {
