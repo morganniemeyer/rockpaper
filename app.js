@@ -21,7 +21,7 @@ let compPlay1 = document.getElementById('compplay1');
 let compPlay2 = document.getElementById('compplay2');
 let compPlay3 = document.getElementById('compplay3');
 
-const fighters = ['link', 'cucco', 'bokoblin'];
+let fighters = ['link', 'cucco', 'bokoblin'];
 let compPick = getRandomItem(fighters);
 let playAgain = document.getElementById('playagain');
 
@@ -45,7 +45,6 @@ function fightPick(userPick) {
     fighterPick.classList.add('hide');
     pick = userPick;
     dispFighter();
-    compPick;
     compFighter();
     playAgain.classList.remove('hide');
 }
@@ -63,6 +62,8 @@ function dispFighter() {
     }
 }
 function compFighter() {
+    compPick = getRandomItem(fighters);
+    console.log(compPick);
     if (compPick === 'link') {
         compPlay1.classList.remove('hide');
     } else {
@@ -84,6 +85,7 @@ function playMore() {
     playAgain.classList.add('hide');
     fighterPick.classList.remove('hide');
     sbtxt.textContent = 'Choose your Fighter!';
+    compPick = '';
 }
 
 /* Components */
